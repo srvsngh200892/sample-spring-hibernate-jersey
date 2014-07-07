@@ -51,5 +51,10 @@ public class TaskRepositoryImpl implements TaskRepository
         em.remove(taskToBeDeleted);
         return taskToBeDeleted;
     }
+    @Override
+	public List<Task> findByStatus(int status) {
 
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

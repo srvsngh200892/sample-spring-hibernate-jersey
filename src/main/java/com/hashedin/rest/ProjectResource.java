@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.hashedin.model.Project;
+import com.hashedin.model.Task;
 import com.hashedin.service.ProjectService;
 
 
@@ -76,4 +77,12 @@ public class ProjectResource
         // Handles DELETE on /Projects/ProjectId. Deletes the existing Project and returns the same.
         return projectService.delete(projectId);
     }
+    @GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Path("/{projectId}/tasks")
+	public List<Task> getTasks(@PathParam("projectId") Long projectId) {
+
+		return projectService.findTasksByProjectId(projectId);
+	}
+
 }

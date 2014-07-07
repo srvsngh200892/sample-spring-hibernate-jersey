@@ -32,9 +32,15 @@ public class Project
         tasks = new ArrayList<Task>();
     }
     
-	public Collection<Task> getTask() {
-        return tasks;
-    }
+	public List<Task> getTasks() {
+
+		return tasks;
+	}
+
+	public void setTasks(List<Task> tasks) {
+
+		this.tasks = tasks;
+	}
 
     @Id
     @GeneratedValue

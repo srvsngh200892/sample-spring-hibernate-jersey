@@ -25,7 +25,7 @@ import com.hashedin.service.TaskService;
 
 
 @Component
-@Path("/project")
+@Path("/tasks")
 public class TaskResource
 {
 

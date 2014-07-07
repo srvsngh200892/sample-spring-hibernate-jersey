@@ -1,5 +1,7 @@
 package com.hashedin.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -16,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "users")
 @NamedQueries({ @NamedQuery(name = "User.findAll", query =
-"SELECT u FROM Task u") })
+"SELECT u FROM User u") })
 public class User {
 	@Id
     @GeneratedValue
@@ -31,9 +33,11 @@ public class User {
     @OneToMany(fetch = FetchType.EAGER, mappedBy="user")
     private List<Task> tasks;
     
-    public List<Task> getTasks() {
-		return tasks;
-	}
+    public User() {
+        tasks = new ArrayList<Task>();
+    }
+    
+   
 
 	public Long getUserId() {
 		return userId;
@@ -67,10 +71,15 @@ public class User {
 		this.gender = gender;
 	}
 
-	public void setTasks(List<Task> tasks) {
-		this.tasks = tasks;
+	public List<Task> getTasks() {
+
+		return tasks;
 	}
 
+	public void setTasks(List<Task> tasks) {
+
+		this.tasks = tasks;
+	}
     
     
 	

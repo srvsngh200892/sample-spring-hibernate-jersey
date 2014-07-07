@@ -38,12 +38,13 @@ public class Task {
 	private String assignTo;
 
 	private String closeDate;
+	
+	private String status;
 
 	@ManyToOne
 	private Project project;
 
-	public Task() {
-	}
+	
 
 	public String getAssignTo() {
 		return assignTo;
@@ -107,6 +108,14 @@ public class Task {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }
