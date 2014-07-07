@@ -19,7 +19,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @Entity
 @Table(name = "tasks")
-@NamedQueries({ @NamedQuery(name = "Task.findAll", query = "SELECT t FROM Task t") })
+@NamedQueries({ @NamedQuery(name = "Task.findAll", query = "SELECT t FROM Task t"),
+@NamedQuery(name = "Task.findByStatus", query = "SELECT t FROM Task t WHERE t.status = :status")})
 public class Task {
 
 	@ManyToOne

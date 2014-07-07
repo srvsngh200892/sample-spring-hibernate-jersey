@@ -15,6 +15,8 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.eclipse.persistence.oxm.annotations.XmlInverseReference;
+
 
 @XmlRootElement
 @Entity
@@ -23,15 +25,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 "SELECT p FROM Project p") })
 public class Project
 {
-
-	@OneToMany(fetch=FetchType.EAGER,mappedBy="project")
+	@XmlInverseReference(mappedBy="project")
+	@OneToMany
+	(fetch=FetchType.EAGER,mappedBy="project",targetEntity=Task.class)
     //@OrderBy("name ASC")
     private List<Task> tasks;
 	
-	public Project() {
-        tasks = new ArrayList<Task>();
-    }
-    
+	
 	public List<Task> getTasks() {
 
 		return tasks;

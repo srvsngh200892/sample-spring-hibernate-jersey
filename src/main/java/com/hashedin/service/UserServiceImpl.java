@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.hashedin.model.Task;
 import com.hashedin.model.User;
 import com.hashedin.repository.UserRepository;
 
@@ -59,5 +60,9 @@ public class UserServiceImpl implements UserService
         // Deletes the User with the give UserId and returns the same.
         return UserRepository.delete(UserId);
     }
+    @Override
+   	public List<Task> findTasksByUserId(Long userId) {
 
+   		return UserRepository.findTasksByUserId(userId);
+   	}
 }

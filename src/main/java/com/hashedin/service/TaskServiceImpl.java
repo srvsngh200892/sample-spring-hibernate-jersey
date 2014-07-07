@@ -56,10 +56,5 @@ public class TaskServiceImpl implements TaskService
         // Deletes the task with the give taskId and returns the same.
         return taskRepository.delete(taskId);
     }
-    @Override
-	public List<Task> findByStatus(int status) {
-
-		// TODO Auto-generated method stub
-		return null;
-	}
+  
 }

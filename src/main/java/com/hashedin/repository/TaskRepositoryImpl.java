@@ -36,7 +36,8 @@ public class TaskRepositoryImpl implements TaskRepository
         List<Task> results = query.getResultList();
         return results;
     }
-
+   
+ 
     @Override
     public Task update(Task task, Long taskId)
     {
@@ -51,10 +52,5 @@ public class TaskRepositoryImpl implements TaskRepository
         em.remove(taskToBeDeleted);
         return taskToBeDeleted;
     }
-    @Override
-	public List<Task> findByStatus(int status) {
-
-		// TODO Auto-generated method stub
-		return null;
-	}
+    
 }

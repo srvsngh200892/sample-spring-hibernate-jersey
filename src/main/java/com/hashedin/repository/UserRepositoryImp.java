@@ -11,6 +11,8 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
+import com.hashedin.model.Project;
+import com.hashedin.model.Task;
 import com.hashedin.model.User;
 
 @Repository("userRepository")
@@ -54,5 +56,8 @@ public class UserRepositoryImp implements UserRepository
         em.remove(taskToBeDeleted);
         return taskToBeDeleted;
     }
+    public List<Task> findTasksByUserId(Long userId) {
 
+ 			return em.find(User.class, userId).getTasks();}
+ 		
 }

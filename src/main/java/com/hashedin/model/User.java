@@ -1,19 +1,18 @@
 package com.hashedin.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.eclipse.persistence.oxm.annotations.XmlInverseReference;
 @XmlRootElement
 @Entity
 @Table(name = "users")
@@ -29,13 +28,12 @@ public class User {
     private String email;
     
     private String gender;
+    @XmlInverseReference(mappedBy="user")
     
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="user")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="user" ,targetEntity=Task.class)
     private List<Task> tasks;
     
-    public User() {
-        tasks = new ArrayList<Task>();
-    }
+   
     
    
 
