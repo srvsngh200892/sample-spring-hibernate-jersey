@@ -19,8 +19,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @Entity
 @Table(name = "tasks")
-@NamedQueries({ @NamedQuery(name = "Task.findAll", query = "SELECT t FROM Task t"),
-@NamedQuery(name = "Task.findByStatus", query = "SELECT t FROM Task t WHERE t.status = :status")})
+@NamedQueries({
+		@NamedQuery(name = "Task.findAll", query = "SELECT t FROM Task t"),
+		@NamedQuery(name = "Task.findByStatus", query = "SELECT t FROM Task t WHERE t.status = :status") })
 public class Task {
 
 	@ManyToOne
@@ -39,13 +40,11 @@ public class Task {
 	private String assignTo;
 
 	private String closeDate;
-	
+
 	private String status;
 
 	@ManyToOne
 	private Project project;
-
-	
 
 	public String getAssignTo() {
 		return assignTo;

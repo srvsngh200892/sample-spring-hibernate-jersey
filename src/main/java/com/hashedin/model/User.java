@@ -13,29 +13,24 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.eclipse.persistence.oxm.annotations.XmlInverseReference;
+
 @XmlRootElement
 @Entity
 @Table(name = "users")
-@NamedQueries({ @NamedQuery(name = "User.findAll", query =
-"SELECT u FROM User u") })
+@NamedQueries({ @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u") })
 public class User {
 	@Id
-    @GeneratedValue
+	@GeneratedValue
 	private Long userId;
 
-    private String userName;
-    
-    private String email;
-    
-    private String gender;
-    @XmlInverseReference(mappedBy="user")
-    
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="user" ,targetEntity=Task.class)
-    private List<Task> tasks;
-    
-   
-    
-   
+	private String userName;
+
+	private String email;
+
+	private String gender;
+	@XmlInverseReference(mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", targetEntity = Task.class)
+	private List<Task> tasks;
 
 	public Long getUserId() {
 		return userId;
@@ -78,7 +73,5 @@ public class User {
 
 		this.tasks = tasks;
 	}
-    
-    
-	
+
 }
